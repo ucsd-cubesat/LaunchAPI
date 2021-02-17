@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * A servlet that performs a small ping for the user. A simple GET request is made, and a simple
  * acknowledgement is sent back.
  */
-@WebServlet("/PingServlet")
+@WebServlet("/ping")
 public class PingServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -26,7 +26,7 @@ public class PingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Pong!");
+		response.getWriter().append("Pong!\n");
 	}
 
 }
