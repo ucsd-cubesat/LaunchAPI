@@ -24,6 +24,7 @@ public class PingServlet extends HttpServlet {
 	 * This method contains the logic of the ping request. The request itself is contained in its
 	 * namesake object, and the response is created in its namesake object.
 	 */
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.getWriter().append("Pong!\n");
