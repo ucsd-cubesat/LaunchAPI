@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/db")
 public class DBServlet extends HttpServlet {
 	
-	private static final long serialVersionUID = 2L;
-       
-    public DBServlet() {
+	private static final long serialVersionUID = 8090576189806039189L;
+
+	public DBServlet() {
         super();
     }
 
@@ -43,7 +43,7 @@ public class DBServlet extends HttpServlet {
 			response.setStatus(400);
 			response.getWriter().append("Requires temp field.\n");
 		} else {
-			payload.utc = utc;
+			payload.utc = Long.parseLong(utc);
 			payload.temp = temp;
 			LaunchDB.put(payload);
 		}

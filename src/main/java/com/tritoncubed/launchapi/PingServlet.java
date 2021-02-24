@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/ping")
 public class PingServlet extends HttpServlet {
-	
-	private static final long serialVersionUID = 1L;
        
-    public PingServlet() {
+	private static final long serialVersionUID = 6659111915305916881L;
+
+	public PingServlet() {
         super();
     }
 
