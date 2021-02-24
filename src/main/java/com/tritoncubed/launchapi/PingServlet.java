@@ -14,20 +14,18 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ping")
 public class PingServlet extends HttpServlet {
        
-	private static final long serialVersionUID = 6659111915305916881L;
+  private static final long serialVersionUID = 6659111915305916881L;
 
-	public PingServlet() {
-        super();
-    }
+  public PingServlet() {
+    super();
+  }
 
-	/**
-	 * This method contains the logic of the ping request. The request itself is contained in its
-	 * namesake object, and the response is created in its namesake object.
-	 */
-    @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.getWriter().append("Pong!\n");
-	}
-
+  /**
+   * This method contains the logic of the ping request. The request itself is contained in its
+   * namesake object, and the response is created in its namesake object.
+   */
+  @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    response.getWriter().append("Pong!\n");
+  }
 }

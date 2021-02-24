@@ -20,14 +20,13 @@ package com.tritoncubed.launchapi;
  */
 public class Payload {
 
-	/**
-	 * UTC time in seconds, from the GPS
-	 */
-	public Long utc;
-	
-	/**
-	 * TODO
-	 */
-	public String temp;
-
+  /**
+   * UTC time in seconds, from the GPS
+   */
+  public Long utc;
+  
+  /**
+   * TODO
+   */
+  public String temp;
 }
