@@ -6,13 +6,13 @@ package com.tritoncubed.launchapi.exceptions;
  */
 public class APIException extends RuntimeException {
 
-  private static final long serialVersionUID = 6311400051089321953L;
+    private static final long serialVersionUID = 6311400051089321953L;
 
-  public APIException(Exception e) {
-    super(e);
-  }
-	
-  public APIException(String message) {
-    super(message);
-  }
+    public APIException(Exception e) {
+        super(e);
+    }
+
+    public APIException(String message) {
+        super(message);
+    }
 }
