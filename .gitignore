@@ -104,3 +104,4 @@ buildNumber.properties
 # Misc
 .classpath
 .DS_Store
+doc/

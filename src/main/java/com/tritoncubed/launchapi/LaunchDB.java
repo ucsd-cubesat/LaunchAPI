@@ -11,10 +11,10 @@ public class LaunchDB {
     /**
      * The Dynamo instance to our table.
      */
-    private static final AmazonDynamoDB TABLE;
+    private static final AmazonDynamoDB DB;
 
     static {
-        TABLE = AmazonDynamoDBClient.builder()
+        DB = AmazonDynamoDBClient.builder()
                 .withRegion(Regions.US_EAST_2)
                 .build();
     }
@@ -27,7 +27,7 @@ public class LaunchDB {
      */
     public static void put(Payload payload) throws APIException {
         try {
-			DynamoDBMapper mapper = new DynamoDBMapper(TABLE);
+			DynamoDBMapper mapper = new DynamoDBMapper(DB);
 			mapper.save(payload);
         } catch (Exception e) {
             throw new APIException(e);
@@ -43,7 +43,7 @@ public class LaunchDB {
      */
     public static Payload get(Long utc) throws APIException {
         try {
-			DynamoDBMapper mapper = new DynamoDBMapper(TABLE);
+			DynamoDBMapper mapper = new DynamoDBMapper(DB);
 			return mapper.load(Payload.class, utc);
         } catch (Exception e) {
             throw new APIException(e);

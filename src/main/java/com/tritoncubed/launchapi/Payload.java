@@ -1,6 +1,5 @@
 package com.tritoncubed.launchapi;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
@@ -12,7 +11,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
  * To better automate the connection to the back-end, fields must follow these guidelines:
  *   - Compound types (arrays, containers, other POJOs) are not allowed
  *   - Numeric values must be of their object type (i.e. Integer, Double, etc)
- *
+ *   - Getters and setters named by standard Java conventions must be publicly available
  *
  * Be sure to document the source of each field, including such information as:
  *   - The source of the data point
@@ -25,8 +24,8 @@ public class Payload {
     /**
      * UTC time in seconds, from the GPS
      */
-    private Long utc;
     @DynamoDBHashKey
+    private Long utc;
     public Long getUtc() { return utc; }
     public void setUtc(Long utc) { this.utc = utc; }
 
@@ -34,7 +33,6 @@ public class Payload {
      * TODO
      */
     private String temp;
-    @DynamoDBAttribute
     public String getTemp() { return temp; }
     public void setTemp(String temp) { this.temp = temp; }
 }
