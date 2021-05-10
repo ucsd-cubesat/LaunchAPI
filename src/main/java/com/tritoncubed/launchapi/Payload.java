@@ -2,6 +2,7 @@ package com.tritoncubed.launchapi;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import java.util.HashMap;
 
 /**
  * A POJO containing the data for a payload made through an HTTP request.
@@ -35,4 +36,17 @@ public class Payload {
     private String temp;
     public String getTemp() { return temp; }
     public void setTemp(String temp) { this.temp = temp; }
+    
+    private HashMap<String, String> accel;
+    public HashMap<String, String> getAccel() { return accel;}
+    public void setAccel(HashMap<String, String> accel) {
+    	this.accel = accel;
+    }
+    
+    public boolean checkPL() {
+    	if (utc != null && (temp != null && accel != null)) {
+    		return true;
+    	}
+    	return false;
+    }
 }
