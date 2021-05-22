@@ -32,21 +32,64 @@ public class Payload {
 
     /**
      * TODO
-     */
+     
     private String temp;
     public String getTemp() { return temp; }
     public void setTemp(String temp) { this.temp = temp; }
+    */
     
-    private HashMap<String, String> accel;
-    public HashMap<String, String> getAccel() { return accel;}
-    public void setAccel(HashMap<String, String> accel) {
-    	this.accel = accel;
-    }
+    /*
+     * accel_X from accelerometer 
+     */
+    @DynamoDBHashKey
+    private Short accel_X;
+    public Short getAccel_X() { return accel_X; }
+    public void setAccel_X(Short accel_X) { this.accel_X = accel_X; }
+   
+    /*
+     * accel_Y from accelerometer 
+     */
+    @DynamoDBHashKey
+    private Short accel_Y;
+    public Short getAccel_Y() { return accel_Y; }
+    public void setAccel_Y(Short accel_Y) { this.accel_Y = accel_Y; }
+    
+    /*
+     * accel_Z from accelerometer 
+     */
+    @DynamoDBHashKey
+    private Short accel_Z;
+    public Short getAccel_Z() { return accel_Z; }
+    public void setAccel_Z(Short accel_Z) { this.accel_Z = accel_Z; }
+    
+    /*
+     * temp_C from thermometer  
+     */
+    @DynamoDBHashKey
+    private float temp_C;
+    public float getTemp_C() { return temp_C; }
+    public void setTemp_C(float temp_C) { this.temp_C = temp_C; }
     
     public boolean checkPL() {
     	if (utc != null && (temp != null && accel != null)) {
     		return true;
     	}
     	return false;
+    }
+    
+    /*
+     * Payload Constructor 
+     * @param accel_x, accel_y, accel_z: acceleration from payload. temp_c: temperature from payload
+     */
+    public Payload(short accel_x, short accel_y, short accel_z, float temp_c) {
+    	this.accel_X = accel_x;
+    	this.accel_Y = accel_y;
+    	this.accel_Z = accel_z;
+    	this.temp_C = temp_c;
+    }
+    
+    @Override
+    public String toString() {
+    	return String.format("{\"temp_C\" : %d, \"utc\" : %d, \"accel_X\" : %d, \"accel_Y\" : %d, \"accel_Z\" : %d}" , this.getTemp_C(), this.getUtc(), this.getAccel_X(), this.getAccel_Y(), this.getAccel_Z());
     }
 }
