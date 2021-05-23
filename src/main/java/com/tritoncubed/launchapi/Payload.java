@@ -2,6 +2,7 @@ package com.tritoncubed.launchapi;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import java.util.HashMap;
 
 /**
  * A POJO containing the data for a payload made through an HTTP request.
@@ -30,9 +31,50 @@ public class Payload {
     public void setUtc(Long utc) { this.utc = utc; }
 
     /**
-     * TODO
+     * acceleration in the x direction (units) from accelerometer 
+     * Units
      */
-    private String temp;
-    public String getTemp() { return temp; }
-    public void setTemp(String temp) { this.temp = temp; }
+    private Short accel_X;
+    public Short getAccel_X() { return accel_X; }
+    public void setAccel_X(Short accel_X) { this.accel_X = accel_X; }
+   
+    /**
+     * accel_Y from accelerometer 
+     */
+    private Short accel_Y;
+    public Short getAccel_Y() { return accel_Y; }
+    public void setAccel_Y(Short accel_Y) { this.accel_Y = accel_Y; }
+    
+    /**
+     * accel_Z from accelerometer 
+     */
+    private Short accel_Z;
+    public Short getAccel_Z() { return accel_Z; }
+    public void setAccel_Z(Short accel_Z) { this.accel_Z = accel_Z; }
+    
+    /**
+     * temp_C from thermometer  
+     */
+    private float temp_C;
+    public float getTemp_C() { return temp_C; }
+    public void setTemp_C(float temp_C) { this.temp_C = temp_C; }
+    
+    /**
+     * Payload Constructor 
+     * @param accel_x acceleratoin on x axis
+     * @param accel_y acceleratoin on y axis 
+     * @param accel_z acceleration on z axis
+     * @param temp_c temperature from payload
+     */
+    public Payload(short accel_x, short accel_y, short accel_z, float temp_c) {
+    	this.accel_X = accel_x;
+    	this.accel_Y = accel_y;
+    	this.accel_Z = accel_z;
+    	this.temp_C = temp_c;
+    }
+    
+    @Override
+    public String toString() {
+    	return String.format("{\"temp_C\" : %f, \"utc\" : %d, \"accel_X\" : %d, \"accel_Y\" : %d, \"accel_Z\" : %d}" , this.getTemp_C(), this.getUtc(), this.getAccel_X(), this.getAccel_Y(), this.getAccel_Z());
+    }
 }
