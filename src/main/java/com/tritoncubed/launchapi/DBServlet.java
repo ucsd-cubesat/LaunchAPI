@@ -30,35 +30,29 @@ public class DBServlet extends HttpServlet {
             response.getWriter().append(payload.toString());
         }
     }
-
-    
-    
+  
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	byte[] raw = request.getInputStream().readAllBytes(); // Potential problem for large amounts of data (File channel?)
+    	byte[] raw = request.getInputStream().readAllBytes(); 
 		ByteBuffer buffer = ByteBuffer.wrap(raw).order(ByteOrder.LITTLE_ENDIAN);
 		
-			short accel_X = buffer.getShort();
-			short accel_Y = buffer.getShort();
-			short accel_Z = buffer.getShort();
-			float temp_C = buffer.getFloat();
+		System.out.println("Buffer's capacity: " + buffer.capacity());
+		
+		if(buffer.capacity() != 10) { 
+			response.setStatus(400); 
+			response.getWriter().append("{\"error\" : \"Payload is not 10 bytes. Got " + buffer.capacity() + "\" }" ); 
+			return;
+		} 
 			
-			Payload payload = new Payload(accel_X, accel_Y, accel_Z, temp_C);
-			
-			if(accel_X == 0) { response.setStatus(400); response.getWriter().append("{\"error\" : \"No accel_X value.\" }"); }
-			else { payload.setAccel_X(accel_X); }
-			if(accel_Y == 0) { response.setStatus(400); response.getWriter().append("{\"error\" : \"No accel_Y value.\"}"); }
-			else { payload.setAccel_Y(accel_Y); }
-			if(accel_Z == 0) { response.setStatus(400); response.getWriter().append("{\"error\" : \"No accel_Z value.\"}"); }
-			else { payload.setAccel_Z(accel_Z); }
-			if(temp_C == 0) { response.setStatus(400); response.getWriter().append("{\"error\" : \"No temp_C value.\"}"); }
-			else { payload.setTemp_C(temp_C); }
-		try {
-			if(payload.checkPL() == true) { //checks if payload is null and inserts into DB if true
-				LaunchDB.put(payload); // inserting payload into DB
-			}
-		}
-		catch(Exception e) {
-			response.sendError(400, "Payload is null for DB insertion");
-		}
+		short accel_X = buffer.getShort(); // 2 bytes
+		short accel_Y = buffer.getShort(); // 2 bytes
+		short accel_Z = buffer.getShort(); // 2 bytes
+		float temp_C = buffer.getFloat(); // 4 bytes
+		
+		Payload payload = new Payload(accel_X, accel_Y, accel_Z, temp_C);
+		
+		System.out.println(payload.toString());
+	
+		response.getWriter().append(payload.toString());
+		//LaunchDB.put(payload); // inserting payload into DB
     }
 }
