@@ -37,19 +37,24 @@ public class DBServlet extends HttpServlet {
 		
 		System.out.println("Buffer's capacity: " + buffer.capacity());
 		
-		if(buffer.capacity() != 10) { 
+		if(buffer.capacity() != 22) { 
 			response.setStatus(400); 
-			response.getWriter().append("{\"error\" : \"Payload is not 10 bytes. Got " + buffer.capacity() + "\" }" ); 
+			response.getWriter().append("{\"error\" : \"Payload is not 22 bytes. Got " + buffer.capacity() + "\" }" ); 
 			return;
 		} 
-		
 		// Normalize values and insert into payload 
 		short accel_X = buffer.getShort(); // 2 bytes
 		short accel_Y = buffer.getShort(); // 2 bytes
 		short accel_Z = buffer.getShort(); // 2 bytes
+		short gyro_X = buffer.getShort(); // 2 bytes
+		short gyro_Y = buffer.getShort(); // 2 bytes
+		short gyro_Z = buffer.getShort(); // 2 bytes
+		short mag_X = buffer.getShort(); // 2 bytes
+		short mag_Y = buffer.getShort(); // 2 bytes
+		short mag_Z = buffer.getShort(); // 2 bytes
 		float temp_C = buffer.getFloat(); // 4 bytes
 		
-		Payload payload = new Payload(accel_X, accel_Y, accel_Z, temp_C);
+		Payload payload = new Payload(accel_X, accel_Y, accel_Z, gyro_X, gyro_Y, gyro_Z, mag_X, mag_Y, mag_Z, temp_C);
 		
 		System.out.println(payload.toString());
 	
