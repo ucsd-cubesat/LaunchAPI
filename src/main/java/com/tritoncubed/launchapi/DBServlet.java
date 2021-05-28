@@ -42,7 +42,8 @@ public class DBServlet extends HttpServlet {
 			response.getWriter().append("{\"error\" : \"Payload is not 10 bytes. Got " + buffer.capacity() + "\" }" ); 
 			return;
 		} 
-			
+		
+		// Normalize values and insert into payload 
 		short accel_X = buffer.getShort(); // 2 bytes
 		short accel_Y = buffer.getShort(); // 2 bytes
 		short accel_Z = buffer.getShort(); // 2 bytes
