@@ -32,103 +32,114 @@ public class Payload {
 
     /**
      * acceleration in the x direction from accelerometer 
-     * Units is meters per second
-     * @param getAccel_X returns acceleration of x axis
-     * @param setAccel_X takes acceleration as arg and sets private var 
+     * Units are meters per second
+     * @directive  getAccel_X returns acceleration of x axis
+     * @directive  setAccel_X takes acceleration as arg and sets private var 
      */
     private float accel_X;
-    public float getAccel_X() { return accel_X; }
-    public void setAccel_X(float accel_X) { this.accel_X = accel_X; }
+    Float accel_x = accel_X;
+    public float getAccel_X() { return accel_x; }
+    public void setAccel_X(float accel_X) { this.accel_x = accel_X; }
    
     /**
      * acceleration in the y direction from accelerometer 
-     * Units is meters per second
-     * @param getAccel_Y returns acceleration of y axis
-     * @param setAccel_Y takes acceleration as arg and sets private var 
+     * Units are meters per second
+     * @directive  getAccel_Y returns acceleration of y axis
+     * @directive  setAccel_Y takes acceleration as arg and sets private var 
      */
     private float accel_Y;
-    public float getAccel_Y() { return accel_Y; }
-    public void setAccel_Y(float accel_Y) { this.accel_Y = accel_Y; }
+    Float accel_y = accel_Y;
+    public float getAccel_Y() { return accel_y; }
+    public void setAccel_Y(float accel_Y) { this.accel_y = accel_Y; }
     
     /**
+     * 
      * acceleration in the z direction from accelerometer 
-     * Units is meters per second
-     * @param getAccel_Z returns acceleration of z axis
-     * @param setAccel_Z takes acceleration as arg and sets private var 
+     * Units are meters per second
+     * @directive  getAccel_Z returns acceleration of z axis
+     * @directive  setAccel_Z takes acceleration as arg and sets private var 
      */
     private float accel_Z;
-    public float getAccel_Z() { return accel_Z; }
-    public void setAccel_Z(float accel_Z) { this.accel_Z = accel_Z; }
+    Float accel_z = accel_Z;
+    public float getAccel_Z() { return accel_z; }
+    public void setAccel_Z(float accel_Z) { this.accel_z = accel_Z; }
     
     /**
      * angular motion in the x direction from gyroscope
-     * Units is millidegrees per second
+     * Units are millidegrees per second
      * @param getGyro_X return angular motion of x axis
      * @param setGryo_X takes ang motion as arg and sets private var  
      */
     private float gyro_X;
-    public float getGyro_X() { return gyro_X; }
-    public void setGyro_X(float gyro_X) { this.gyro_X = gyro_X; }
+    Float gyro_x = gyro_X;
+    public float getGyro_X() { return gyro_x; }
+    public void setGyro_X(float gyro_X) { this.gyro_x = gyro_X; }
     
     /**
      * angular motion in the y direction from gyroscope
-     * Units is millidegrees per second
-     * @param getGyro_Y return angular motion of y axis
-     * @param setGryo_Y takes ang motion as arg and sets private var  
+     * Units are millidegrees per second
+     * @directive  getGyro_Y return angular motion of y axis
+     * @directive  setGryo_Y takes ang motion as arg and sets private var  
      */
     private float gyro_Y;
-    public float getGyro_Y() { return gyro_Y; }
-    public void setGyro_Y(float gyro_Y) { this.gyro_Y = gyro_Y; }
+    Float gyro_y = gyro_Y;
+    public float getGyro_Y() { return gyro_y; }
+    public void setGyro_Y(float gyro_Y) { this.gyro_y = gyro_Y; }
     
     /**
      * angular motion in the z direction from gyroscope
-     * Units is millidegrees per second
-     * @param getGyro_Z return angular motion of z axis
-     * @param setGryo_Z takes ang motion as arg and sets private var  
+     * Units are millidegrees per second
+     * @directive  getGyro_Z return angular motion of z axis
+     * @directive  setGryo_Z takes ang motion as arg and sets private var  
      */
     private float gyro_Z;
-    public float getGyro_Z() { return gyro_Z; }
-    public void setGyro_Z(float gyro_Z) { this.gyro_Z = gyro_Z; }
+    Float gyro_z = gyro_Z;
+    public float getGyro_Z() { return gyro_z; }
+    public void setGyro_Z(float gyro_Z) { this.gyro_z = gyro_Z; }
     
     /**
      * magnetic field in the x direction from Magnetosensor
-     * Units is 
-     * @param getMag_X return magnetic field of x axis
-     * @param setMag_X takes magnetic field as arg and sets private var  
+     * Units are milli gauss
+     * @directive  getMag_X return magnetic field of x axis
+     * @directive  setMag_X takes magnetic field as arg and sets private var  
      */
     private float mag_X;
-    public float getMag_X() { return mag_X; }
-    public void setMag_X(float mag_X) { this.mag_X = mag_X; }
+    Float mag_x = mag_X;
+    public float getMag_X() { return mag_x; }
+    public void setMag_X(float mag_X) { this.mag_x = mag_X; }
     
     /**
      * magnetic field in the y direction from Magnetosensor
-     * Units is milli gauss
-     * @param getMag_Y return magnetic field of y axis
-     * @param setMag_Y takes magnetic field as arg and sets private var  
+     * Units are milli gauss
+     * @directive  getMag_Y return magnetic field of y axis
+     * @directive  setMag_Y takes magnetic field as arg and sets private var  
      */
     private float mag_Y;
-    public float getMag_Y() { return mag_Y; }
-    public void setMag_Y(float mag_Y) { this.mag_Y = mag_Y; }
+    Float mag_y = mag_Y;
+    public float getMag_Y() { return mag_y; }
+    public void setMag_Y(float mag_Y) { this.mag_y = mag_Y; }
     
     /**
      * magnetic field in the z direction from Magnetosensor
-     * Units is milli gauss
-     * @param getMag_Z return magnetic field of z axis
-     * @param setMag_Z takes magnetic field as arg and sets private var  
+     * Units are milli gauss
+     * @directive  getMag_Z return magnetic field of z axis
+     * @directive  setMag_Z takes magnetic field as arg and sets private var  
      */
     private float mag_Z;
-    public float getMag_Z() { return mag_Z; }
-    public void setMag_Z(float mag_Z) { this.mag_Z = mag_Z; }
+    Float mag_z = mag_Z;
+    public float getMag_Z() { return mag_z; }
+    public void setMag_Z(float mag_Z) { this.mag_z = mag_Z; }
     
     /**
      * temp_C from thermometer  
-     * Units is Celcius
-     * @param getTemp_C return temperature in celcius
-     * @param setTemp_C takes temperature as arg and sets private var 
+     * Units are Celsius
+     * @directive  getTemp_C return temperature in celsius
+     * @directive  setTemp_C takes temperature as arg and sets private var 
      */
     private float temp_C;
-    public float getTemp_C() { return temp_C; }
-    public void setTemp_C(float temp_C) { this.temp_C = temp_C; }
+    Float temp_c = temp_C;
+    public float getTemp_C() { return temp_c; }
+    public void setTemp_C(float temp_C) { this.temp_c = temp_C; }
     
     
     /**
@@ -138,8 +149,6 @@ public class Payload {
     
     /**
      *  Determines the scale and precision of the accelerometer
-     *  g is the standard acceleration due to Earth's gravity
-     *  Conversion to float from conversion factor of enum. 
      */
     public enum FS_XL {
     	FS_XL_2(0.061f),
@@ -155,8 +164,7 @@ public class Payload {
     }
     
     /**
-     * Determines the scale and precision of the gyroscope 
-     * Conversion to float from conversion factor of enum. 
+     * Determines the scale and precision of the gyroscope  
      */
     public enum FS_G {
     	FS_G_245(8.75f),
@@ -172,7 +180,6 @@ public class Payload {
     
     /**
      * Determines the scale and precision of the magnetosensor
-     * Conversion to float from conversion factor of enum. 
      */
     enum FS_M {
     	FS_M_4(0.14f),
@@ -200,24 +207,24 @@ public class Payload {
      * @param mag_z magnetic field in the z direction
      * @param temp_c temperature from payload
      */
-    public Payload(short accel_x, short accel_y, short accel_z, 
-    short gyro_x, short gyro_y, short gyro_z, short mag_x, 
-    short mag_y, short mag_z, float temp_c) {
+    public Payload(short accel_xx, short accel_yy, short accel_zz, 
+    short gyro_xx, short gyro_yy, short gyro_zz, short mag_xx, 
+    short mag_yy, short mag_zz, float temp_cc) {
     	
-    	this.accel_X = accel_x * fs_xl.conversionFactor;
-    	this.accel_Y = accel_y * fs_xl.conversionFactor;
-    	this.accel_Z = accel_z * fs_xl.conversionFactor;
-    	this.gyro_X = gyro_x * fs_xl.conversionFactor;
-    	this.gyro_Y = gyro_y * fs_xl.conversionFactor;
-    	this.gyro_Z = gyro_z * fs_xl.conversionFactor;
-    	this.mag_X = mag_x * fs_xl.conversionFactor;
-    	this.mag_Y = mag_y * fs_xl.conversionFactor;
-    	this.mag_Z = mag_z * fs_xl.conversionFactor;
-    	this.temp_C = temp_c;
+    	this.accel_x = accel_xx * fs_xl.conversionFactor;
+    	this.accel_y = accel_yy * fs_xl.conversionFactor;
+    	this.accel_z = accel_zz * fs_xl.conversionFactor;
+    	this.gyro_x = gyro_xx * fs_xl.conversionFactor;
+    	this.gyro_y = gyro_yy * fs_xl.conversionFactor;
+    	this.gyro_z = gyro_zz * fs_xl.conversionFactor;
+    	this.mag_x = mag_xx * fs_xl.conversionFactor;
+    	this.mag_y = mag_yy * fs_xl.conversionFactor;
+    	this.mag_z = mag_zz * fs_xl.conversionFactor;
+    	this.temp_c = temp_cc;
     }
     
     /**
-     * Method to print out all payload attributes in a JSON format
+     * Generates all payload attributes in a JSON format
      */
     @Override
     public String toString() {

@@ -39,7 +39,7 @@ public class DBServlet extends HttpServlet {
 		
 		if(buffer.capacity() != 22) { 
 			response.setStatus(400); 
-			response.getWriter().append("{\"error\" : \"Payload is not 22 bytes. Got " + buffer.capacity() + "\" }" ); 
+			response.getWriter().append("{\"error\" : \"Payload is not 22pay bytes. Got " + buffer.capacity() + "\" }" ); 
 			return;
 		} 
 		// Normalize values and insert into payload 
