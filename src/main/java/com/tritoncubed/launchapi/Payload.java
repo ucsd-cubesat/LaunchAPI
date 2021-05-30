@@ -116,6 +116,8 @@ public class Payload {
      * Creates static instance of enum 
      */
     public static final FS_XL fs_xl = FS_XL.FS_XL_2;
+    public static final FS_G fs_g = FS_G.FS_G_245;
+    public static final FS_M fs_m = FS_M.FS_M_4;
     
     /**
      *  Determines the scale and precision of the accelerometer
@@ -184,12 +186,12 @@ public class Payload {
     	this.accel_X = accel_x * fs_xl.conversionFactor;
     	this.accel_Y = accel_y * fs_xl.conversionFactor;
     	this.accel_Z = accel_z * fs_xl.conversionFactor;
-    	this.gyro_X = gyro_x * fs_xl.conversionFactor;
-    	this.gyro_Y = gyro_y * fs_xl.conversionFactor;
-    	this.gyro_Z = gyro_z * fs_xl.conversionFactor;
-    	this.mag_X = mag_x * fs_xl.conversionFactor;
-    	this.mag_Y = mag_y * fs_xl.conversionFactor;
-    	this.mag_Z = mag_z * fs_xl.conversionFactor;
+    	this.gyro_X = gyro_x * fs_g.conversionFactor;
+    	this.gyro_Y = gyro_y * fs_g.conversionFactor;
+    	this.gyro_Z = gyro_z * fs_g.conversionFactor;
+    	this.mag_X = mag_x * fs_m.conversionFactor;
+    	this.mag_Y = mag_y * fs_m.conversionFactor;
+    	this.mag_Z = mag_z * fs_m.conversionFactor;
     	this.temp_C = temp_c;
     }
     
