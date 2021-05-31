@@ -115,9 +115,9 @@ public class Payload {
     /**
      * Creates static instance of enum 
      */
-    public static final FS_XL fs_xl = FS_XL.FS_XL_2;
-    public static final FS_G fs_g = FS_G.FS_G_245;
-    public static final FS_M fs_m = FS_M.FS_M_4;
+    public static final FS_XL fs_xl = FS_XL.FS_XL_4;
+    public static final FS_G fs_g = FS_G.FS_G_2000;
+    public static final FS_M fs_m = FS_M.FS_M_8;
     
     /**
      *  Determines the scale and precision of the accelerometer
