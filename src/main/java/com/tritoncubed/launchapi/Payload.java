@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Payload {
 
     /**
-     * UTC time in seconds, from the GPS
+     * UTC time in milliseconds, from the GPS
      */
     @DynamoDBHashKey
     private Long utc;
@@ -111,6 +111,29 @@ public class Payload {
     public Float getTemp_C() { return temp_C; }
     public void setTemp_C(Float temp_C) { this.temp_C = temp_C; }
     
+    /**
+     * Latitude from GPS
+     * Units are trigonometric degrees
+     */
+    private Float latitude;
+    public Float getLatitude() { 
+    	return latitude;
+    }
+    public void setLatitude(Float latitude) {
+    	this.latitude = latitude;
+    }
+    
+    /**
+     * Longitude from GPS
+     * Units are trigonometric degrees
+     */
+    private Float longitude;
+    public Float getLongitude() {
+    	return longitude;
+    }
+    public void setLongitude(Float longitude) {
+    	this.longitude = longitude;
+    }
     
     /**
      * Creates static instance of enum 
@@ -178,10 +201,12 @@ public class Payload {
      * @param mag_y magnetic field in the y direction
      * @param mag_z magnetic field in the z direction
      * @param temp_c temperature from payload
+     * @param latitude latitudinal position on earth 
+     * @param longitude longitudinal position on earth
      */
     public Payload(short accel_x, short accel_y, short accel_z, 
     short gyro_x, short gyro_y, short gyro_z, short mag_x, 
-    short mag_y, short mag_z, float temp_c) {
+    short mag_y, short mag_z, float temp_c, float latitude, float longitude, long utc) {
     	
     	this.accel_X = accel_x * fs_xl.conversionFactor;
     	this.accel_Y = accel_y * fs_xl.conversionFactor;
@@ -193,6 +218,9 @@ public class Payload {
     	this.mag_Y = mag_y * fs_m.conversionFactor;
     	this.mag_Z = mag_z * fs_m.conversionFactor;
     	this.temp_C = temp_c;
+    	this.latitude = latitude;
+    	this.longitude = longitude;
+    	this.utc = utc;
     }
     
     /**
@@ -202,8 +230,8 @@ public class Payload {
     public String toString() {
     	return String.format(
     			"{ \"accel_X\" : %f, \"accel_Y\" : %f, \"accel_Z\" : %f, \"gyro_X\" : %f, \"gyro_Y\" : %f, \"gyro_Z\" : %f, "
-    			+ "\"mag_X\" : %f, \"mag_Y\" : %f, \"mag_Z\" : %f, \"temp_C\" : %f, \"utc\" : %f,}" , 
+    			+ "\"mag_X\" : %f, \"mag_Y\" : %f, \"mag_Z\" : %f, \"temp_C\" : %f, \"utc\" : %f, \"latitude\" : %f, \"longitude\" : %f}" , 
     			this.accel_X, this.accel_Y, this.accel_Z, this.gyro_X, this.gyro_Y, 
-    			this.gyro_Z, this.mag_X, this.mag_Y, this.mag_Z, this.temp_C, this.utc);
+    			this.gyro_Z, this.mag_X, this.mag_Y, this.mag_Z, this.temp_C, this.utc, this.latitude, this.longitude);
     } 
 }
