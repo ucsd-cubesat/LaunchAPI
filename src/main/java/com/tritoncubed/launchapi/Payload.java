@@ -2,7 +2,6 @@ package com.tritoncubed.launchapi;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import java.util.HashMap;
 
 /**
  * A POJO containing the data for a payload made through an HTTP request.
@@ -224,13 +223,20 @@ public class Payload {
     }
     
     /**
+     * No-args constructor for creating blank Payload
+     */
+    public Payload() {
+        
+    }
+    
+    /**
      * Generates all payload attributes in a JSON format
      */
     @Override
     public String toString() {
     	return String.format(
     			"{ \"accel_X\" : %f, \"accel_Y\" : %f, \"accel_Z\" : %f, \"gyro_X\" : %f, \"gyro_Y\" : %f, \"gyro_Z\" : %f, "
-    			+ "\"mag_X\" : %f, \"mag_Y\" : %f, \"mag_Z\" : %f, \"temp_C\" : %f, \"utc\" : %f, \"latitude\" : %f, \"longitude\" : %f}" , 
+    			+ "\"mag_X\" : %f, \"mag_Y\" : %f, \"mag_Z\" : %f, \"temp_C\" : %f, \"utc\" : %d, \"latitude\" : %f, \"longitude\" : %f}" , 
     			this.accel_X, this.accel_Y, this.accel_Z, this.gyro_X, this.gyro_Y, 
     			this.gyro_Z, this.mag_X, this.mag_Y, this.mag_Z, this.temp_C, this.utc, this.latitude, this.longitude);
     } 

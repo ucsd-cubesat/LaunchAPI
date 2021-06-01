@@ -25,8 +25,8 @@ public class DBServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String utc = request.getParameter("utc");
         if (utc == null) {
-            response.setStatus(400);
-            response.getWriter().append("{\"error\" : \"No UTC value.\" }");
+            Payload payload = LaunchDB.get();
+            response.getWriter().append(payload.toString());
         } else {
             Payload payload = LaunchDB.get(Long.parseLong(utc));
             response.getWriter().append(payload.toString());
@@ -71,8 +71,8 @@ public class DBServlet extends HttpServlet {
 			return;
 		}
 		
-		float lat_float = Integer.valueOf(latitude.substring(0,2)) + Float.valueOf(latitude.substring(2));
-		float lon_float = Integer.valueOf(longitude.substring(0,3)) + Float.valueOf(longitude.substring(3));
+		float lat_float = Integer.valueOf(latitude.substring(0,2)) + (Float.valueOf(latitude.substring(2)) / 60);
+		float lon_float = Integer.valueOf(longitude.substring(0,3)) + (Float.valueOf(longitude.substring(3)) / 60);
 		
 		if(NS == 'S') {
 			lat_float *= -1;
@@ -88,7 +88,7 @@ public class DBServlet extends HttpServlet {
 		System.out.println(payload.toString());
 	
 		response.getWriter().append(payload.toString());
-		//LaunchDB.put(payload); // inserting payload into DB
+		LaunchDB.put(payload); // inserting payload into DB
     }
     
     private static String stringFromBytes(byte[] bytes) {
